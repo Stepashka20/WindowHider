@@ -42,25 +42,25 @@ int main() {
         windows[i] = hwnd;
     }
     int name_input_hwnd;
-    cout << "Ââåäèòå íîìåð îêíà: ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð¾ÐºÐ½Ð°: ";
     cin >> name_input_hwnd;
     if (!windows[name_input_hwnd]) {
-        cout << "Îêíà íå ñóùåñòâóåò!" << endl;
+        cout << "ÐžÐºÐ½Ð° Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚!" << endl;
         return 0;
     }
     HWND test_window = windows[name_input_hwnd];
     DWORD pid = 0;
     GetWindowThreadProcessId(test_window, &pid);
     if (!pid) {
-        cout << "Ïðîèçîøëà îøèáêà" << endl;
+        cout << "ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ°" << endl;
         return 0;
     }
 
     bool status = wndhide::hide_window(pid, test_window);
     if (status) {
-        cout << "Óñïåõ" << endl;
+        cout << "Ð£ÑÐ¿ÐµÑ…" << endl;
     } else {
-        cout << "Îøèáêà" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°" << endl;
     }
     return 0;
     
